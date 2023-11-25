@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameManager_Orbits : MonoBehaviour
+{
+    public static GameManager_Orbits Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Init();
+            return;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private const string highScoreKey = "HighScore";
+
+    public int HighScore
+    {
+        get
+        {
+            return PlayerPrefs.GetInt(highScoreKey,0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt(highScoreKey, value);
+        }
+    }
+
+    public int CurrentScore { get; set; }
+    public bool IsInitialized { get; set; }
+
+
+    private void Init()
+    {
+        CurrentScore = 0;
+        IsInitialized = false;
+    }
+
+    private const string MainMenu = "Orbits_MainMenu";
+    private const string Gameplay = "Orbits_Gameplay";
+    private const string ReturnMenu="MainMenuGame";
+    
+
+    public void GoToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(MainMenu);
+    }
+
+    public void GoToGameplay()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(Gameplay);
+    }
+     public void Return()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(ReturnMenu);
+    }
+}

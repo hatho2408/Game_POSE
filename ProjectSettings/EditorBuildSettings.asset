@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenuGame.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DotRecue/DotRescue_Gameplay.unity
+    guid: 2399a8a889e952146add2623bd919c93
+  - enabled: 1
+    path: Assets/Scenes/DotRecue/DotRescue_MainMenu.unity
+    guid: 67afec27b3193b949a78851c7e64f7e5
+  - enabled: 1
+    path: Assets/Scenes/Orbits/Orbits_Gameplay.unity
+    guid: e6bcf33829e0d2a4b9025397d0d3b349
+  - enabled: 1
+    path: Assets/Scenes/Orbits/Orbits_MainMenu.unity
+    guid: fc394ed5d254f25469292ad9d78973e7
+  - enabled: 1
+    path: Assets/Scenes/Color_Bird/Color_Bird_GameScene.unity
+    guid: 6b24cc1ea69f7034abf136a7c59e09cd
+  - enabled: 1
+    path: Assets/Scenes/Color_Bird/Color_Bird_LoadingScene.unity
+    guid: 56e96d6fbc7a2ca4cab8bdc3df259ff0
+  - enabled: 1
+    path: Assets/Scenes/Color_Bird/Color_Bird_MainMenuScene.unity
+    guid: 7ca8fe3c7f7355c4aa45822c9814deef
+  - enabled: 1
+    path: Assets/Scenes/Game_2048/2048.unity
+    guid: c2e4fa72f72c36e4fac13dd1dc214793
+  - enabled: 1
+    path: Assets/Scenes/Game_2048/Game.unity
+    guid: 6f3854f66f63d8a4788f2316a32d5146
+  - enabled: 1
+    path: Assets/Scenes/Space_Ship/Space_Ship_GameScene.unity
+    guid: 5e462bb9c1d4e8647adf46fb5da37ac8
+  - enabled: 1
+    path: Assets/Scenes/Space_Ship/Space_Ship_MainMenu.unity
+    guid: 23990c15721368c4684b17c571412e18
+  - enabled: 1
+    path: Assets/Scenes/Space_Ship/Space_Ship_GameOver.unity
+    guid: 989ee6327a97e1744bacc18ab2be35e9
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level.unity
+    guid: 8b31855fcb3e00642bf5c7349b919a37
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 1.unity
+    guid: 116ae3c6b601c0c458fa4dca59e44c66
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 2.unity
+    guid: 14a5efd0c1cb3544f81c20572e0f50cd
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 3.unity
+    guid: 2d7ab326b6afc7147bbcbf2fc5c4ea36
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 4.unity
+    guid: 013463d23470f3e499cba998acf30d71
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 5.unity
+    guid: 6c35de2ad145fd948bf0a46590e6d592
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 6.unity
+    guid: af3dfad1cea5df849ba74a4ea10041e7
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 7.unity
+    guid: 7ffc1f66bcfef284298ba4126ed39d4f
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Level 8.unity
+    guid: 030912dde78acdb47a74019f5ef53053
+  - enabled: 1
+    path: Assets/Scenes/Pixel Adventure/Pixel_Adventure_MainMenu.unity
+    guid: 2a6c2e081794a9c4585ea3a220eb9f49
+  m_configObjects: {}
