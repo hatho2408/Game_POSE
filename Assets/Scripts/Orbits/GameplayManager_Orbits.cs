@@ -41,4 +41,5 @@ public class GameplayManager_Orbits : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GameManager_Orbits.Instance.GoToMainMenu();
     }
+    
 }

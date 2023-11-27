@@ -61,15 +61,28 @@ public class GameManager_Pixel : MonoBehaviour
 
         int newTotalFruits = totalFruits + PlayerManager_Pixel.instance.fruits;
 
-        PlayerPrefs.SetInt("TotalFruitsCollected", newTotalFruits);
-        PlayerPrefs.SetInt("Level" + levelNumber + "FruitsCollected", PlayerManager_Pixel.instance.fruits);
 
+        PlayerPrefs.SetInt("TotalFruitsCollected", newTotalFruits);
+        SendHighestScoreToAndroidApp_Pixel();
+        PlayerPrefs.SetInt("Level" + levelNumber + "FruitsCollected", PlayerManager_Pixel.instance.fruits);
         PlayerManager_Pixel.instance.fruits = 0;
     }
     public void SaveLevelInfo()
     {
         int nextLevelNumber = levelNumber + 1;
         PlayerPrefs.SetInt("Level" + nextLevelNumber + "Unlocked",1);
+    }
+     public void SendHighestScoreToAndroidApp_Pixel()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+                int highScore = GameManager_DotRescue.Instance.HighScore;
+                activity.Call("sendScoreToAndroidApp", highScore);
+            }
+        }
     }
     
 }

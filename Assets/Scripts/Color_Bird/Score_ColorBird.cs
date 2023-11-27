@@ -38,5 +38,16 @@ public static class Score_ColorBird
             return false;
         }
     }
+    //  void SendHighestScoreToAndroidApp()
+    // {
+    //     using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+    //     {
+    //         using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+    //         {
+    //             // Call a method in your Android app to send the highest score
+    //             activity.Call("sendScoreToAndroidApp", int.Parse(highestScore));
+    //         }
+    //     }
+    // }
     
 }

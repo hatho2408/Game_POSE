@@ -12,6 +12,7 @@ public class MainMenuManager_DotRescue : MonoBehaviour
     {
 
         _bestScoreText.text = GameManager_DotRescue.Instance.HighScore.ToString();
+        SendHighestScoreToAndroidApp_DotRescue();
 
         if(!GameManager_DotRescue.Instance.IsInitialized)
         {
@@ -72,5 +73,17 @@ public class MainMenuManager_DotRescue : MonoBehaviour
     public void ClickedReturn()
     {
          GameManager_DotRescue.Instance.Return();
+    }
+     public  void SendHighestScoreToAndroidApp_DotRescue()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+                int highScore = GameManager_DotRescue.Instance.HighScore;
+                activity.Call("sendScoreToAndroidApp", highScore);
+            }
+        }
     }
 }

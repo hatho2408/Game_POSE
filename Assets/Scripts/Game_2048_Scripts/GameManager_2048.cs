@@ -22,6 +22,7 @@ public class GameManager_2048 : MonoBehaviour
         // reset score
         SetScore(0);
         hiscoreText.text = LoadHiscore().ToString();
+        SendHighestScoreToAndroidApp_2048();
 
         // hide game over screen
         gameOver.alpha = 0f;
@@ -77,7 +78,8 @@ public class GameManager_2048 : MonoBehaviour
     {
         int hiscore = LoadHiscore();
 
-        if (score > hiscore) {
+        if (score > hiscore)
+        {
             PlayerPrefs.SetInt("hiscore", score);
         }
     }
@@ -89,6 +91,18 @@ public class GameManager_2048 : MonoBehaviour
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenuGame");
+    }
+    public void SendHighestScoreToAndroidApp_2048()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+               
+                activity.Call("sendScoreToAndroidApp", LoadHiscore());
+            }
+        }
     }
 
 }

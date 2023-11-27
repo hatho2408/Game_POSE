@@ -11,10 +11,6 @@ public class LevelManager_SShip : MonoBehaviour
     public string highestScore;
      AudioPlayer_SShip audioPlayer;
 
- 
-
-    
-
     void Awake()
     {
         scorekeeper = FindObjectOfType<Scorekeeper_SShip>();
@@ -58,10 +54,10 @@ public class LevelManager_SShip : MonoBehaviour
         PlayerPrefs.SetString("Your highest score data: ", scoreMessage);
         PlayerPrefs.Save();
         Debug.Log("Saved data: " + scoreMessage);
-        SendHighestScoreToAndroidApp();
+        SendHighestScoreToAndroidApp_Ship();
     }
 
-    void SendHighestScoreToAndroidApp()
+    void SendHighestScoreToAndroidApp_Ship()
     {
         using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
         {

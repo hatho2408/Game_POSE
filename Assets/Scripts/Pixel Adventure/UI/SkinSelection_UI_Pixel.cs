@@ -52,7 +52,6 @@ public class SkinSelection_UI_Pixel : MonoBehaviour
 
             PlayerPrefs.SetInt("TotalFruitsCollected", totalFruits);
 
-
             AudioManager_Pixel.instance.PlaySFX(5);
             return true;
         }
@@ -111,5 +110,17 @@ public class SkinSelection_UI_Pixel : MonoBehaviour
     private void OnDisable()
     {
         selectButton.SetActive(false);
+    }
+    public void SendHighestScoreToAndroidApp_Pixel()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+                int highScore = GameManager_DotRescue.Instance.HighScore;
+                activity.Call("sendScoreToAndroidApp", highScore);
+            }
+        }
     }
 }
