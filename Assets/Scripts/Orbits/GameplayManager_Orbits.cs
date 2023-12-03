@@ -33,6 +33,7 @@ public class GameplayManager_Orbits : MonoBehaviour
     public void GameEnded()
     {
         GameManager_Orbits.Instance.CurrentScore = score;
+        SendHighestScoreToAndroidApp_Orbits();
         StartCoroutine(GameOver());
     }
 
@@ -40,6 +41,18 @@ public class GameplayManager_Orbits : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         GameManager_Orbits.Instance.GoToMainMenu();
+    }
+       public  void SendHighestScoreToAndroidApp_Orbits()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+                 int highScore = GameManager_Orbits.Instance.HighScore;
+                activity.Call("SendHighestScoreToAndroidApp_Orbits", highScore);
+            }
+        }
     }
     
 }

@@ -22,7 +22,7 @@ public class GameManager_2048 : MonoBehaviour
         // reset score
         SetScore(0);
         hiscoreText.text = LoadHiscore().ToString();
-        SendHighestScoreToAndroidApp_2048();
+       
 
         // hide game over screen
         gameOver.alpha = 0f;
@@ -39,7 +39,7 @@ public class GameManager_2048 : MonoBehaviour
     {
         board.enabled = false;
         gameOver.interactable = true;
-
+         SendHighestScoreToAndroidApp_2048();
         StartCoroutine(Fade(gameOver, 1f, 1f));
     }
 
@@ -100,7 +100,7 @@ public class GameManager_2048 : MonoBehaviour
             {
                 // Call a method in your Android app to send the highest score
                
-                activity.Call("sendScoreToAndroidApp", LoadHiscore());
+                activity.Call("SendHighestScoreToAndroidApp_2048", LoadHiscore());
             }
         }
     }

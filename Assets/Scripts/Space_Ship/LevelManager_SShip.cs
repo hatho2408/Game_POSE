@@ -64,7 +64,7 @@ public class LevelManager_SShip : MonoBehaviour
             using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
             {
                 // Call a method in your Android app to send the highest score
-                activity.Call("sendScoreToAndroidApp", int.Parse(highestScore));
+                activity.Call("SendHighestScoreToAndroidApp_Ship", int.Parse(highestScore));
             }
         }
     }

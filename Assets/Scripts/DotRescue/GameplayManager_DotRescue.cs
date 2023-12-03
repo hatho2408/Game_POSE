@@ -45,7 +45,7 @@ public class GameplayManager_DotRescue : MonoBehaviour
     {
         hasGameFinished = true;
         GameManager_DotRescue.Instance.CurrentScore = (int)score;
-
+        SendHighestScoreToAndroidApp_DotRescue();
         StartCoroutine(GameOver());
     }
 
@@ -55,19 +55,16 @@ public class GameplayManager_DotRescue : MonoBehaviour
         yield return new WaitForSeconds(2f);
         GameManager_DotRescue.Instance.GotoMainMenu();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      public  void SendHighestScoreToAndroidApp_DotRescue()
+    {
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                // Call a method in your Android app to send the highest score
+                int highScore = GameManager_DotRescue.Instance.HighScore;
+                activity.Call("SendHighestScoreToAndroidApp_DotRescue", highScore);
+            }
+        }
+    }
 }

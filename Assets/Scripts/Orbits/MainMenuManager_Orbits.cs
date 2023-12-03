@@ -11,7 +11,7 @@ public class MainMenuManager_Orbits : MonoBehaviour
     private void Awake()
     {
         _bestScoreText.text = GameManager_Orbits.Instance.HighScore.ToString();
-        SendHighestScoreToAndroidApp_Orbits();
+        
 
         if(!GameManager_Orbits.Instance.IsInitialized)
         {
@@ -72,18 +72,7 @@ public class MainMenuManager_Orbits : MonoBehaviour
     {
          GameManager_Orbits.Instance.Return();
     }
-      public  void SendHighestScoreToAndroidApp_Orbits()
-    {
-        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
-        {
-            using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
-            {
-                // Call a method in your Android app to send the highest score
-                 int highScore = GameManager_Orbits.Instance.HighScore;
-                activity.Call("sendScoreToAndroidApp", highScore);
-            }
-        }
-    }
+   
 
 
 

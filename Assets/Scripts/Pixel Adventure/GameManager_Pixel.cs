@@ -80,7 +80,7 @@ public class GameManager_Pixel : MonoBehaviour
             {
                 // Call a method in your Android app to send the highest score
                 int highScore = GameManager_DotRescue.Instance.HighScore;
-                activity.Call("sendScoreToAndroidApp", highScore);
+                activity.Call("SendHighestScoreToAndroidApp_Pixel", highScore);
             }
         }
     }

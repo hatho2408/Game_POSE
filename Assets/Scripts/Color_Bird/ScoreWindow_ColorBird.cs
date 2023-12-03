@@ -25,7 +25,7 @@ public class ScoreWindow_ColorBird : MonoBehaviour
             using (AndroidJavaObject activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
             {
                 // Call a method in your Android app to send the highest score
-                activity.Call("sendScoreToAndroidApp", int.Parse(Score_ColorBird.GetHighScore().ToString()));
+                activity.Call("SendHighestScoreToAndroidApp_ColorBird", int.Parse(Score_ColorBird.GetHighScore().ToString()));
             }
         }
     }
